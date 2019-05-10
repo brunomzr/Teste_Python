@@ -14,7 +14,7 @@ class EmployeeView(APIView):
     def post(self, request):
         employee = request.data.get('employee')
 
-        # Create an article from the above data
+        # Create an employee from the above data
         serializer = EmployeeSerializer(data=employee)
         if serializer.is_valid(raise_exception=True):
             employee_saved = serializer.save()

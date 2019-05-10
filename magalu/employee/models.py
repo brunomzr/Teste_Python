@@ -1,5 +1,8 @@
 from django.db import models
 
+import sys
+sys.path.append('sys.path[0] + "/.."')
+
 class Employee(models.Model):
 
     first_name = models.CharField(
