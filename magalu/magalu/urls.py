@@ -19,7 +19,14 @@ from django.urls import path
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf.urls import include, url
+from django.contrib import admin
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('employee/', include('employee.urls')),
+    url(r'^', include('employee.urls')),
+    url(
+        r'^api-auth/',
+        include('rest_framework.urls', namespace='rest_framework')
+    ),
+    url(r'^admin/', admin.site.urls),
 ]

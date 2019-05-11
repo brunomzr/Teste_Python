@@ -1,0 +1,12 @@
+-- Log
+#'simple_log',
+
+-- Validação email
+
+-- Criar estrutura de departamentos
+
+
+Comandos:
+python manage.py runserver
+python manage.py test
+

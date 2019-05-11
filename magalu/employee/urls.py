@@ -1,10 +1,16 @@
-from django.urls import path
+from django.conf.urls import url
 
-from .views import EmployeeView
+from . import views
 
-app_name = "employee"
-
-# app_name will help us do a reverse look-up latter.
 urlpatterns = [
-    path('', EmployeeView.as_view()),
-]
+        url(
+            r'^employee/(?P<pk>[0-9]+)/$',
+            views.get_delete_update_employee,
+            name='get_delete_update_employee'
+        ),
+        url(
+            r'^employee/$',
+            views.get_post_employee,
+            name='get_post_employee'
+        )
+    ]
