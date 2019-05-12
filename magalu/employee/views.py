@@ -4,8 +4,8 @@ from rest_framework.views import APIView
 from rest_framework.generics import get_object_or_404
 from rest_framework import status
 
-from .models import Employee
-from .serializers import EmployeeSerializer
+from .models import Employee, Department
+from .serializers import EmployeeSerializer, DepartmentSerializer
 
 @api_view(['GET', 'DELETE', 'PUT'])
 def get_delete_update_employee(request, pk):
@@ -48,6 +48,26 @@ def get_post_employee(request):
             'department': request.data.get('department')
         }
         serializer = EmployeeSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET', 'POST'])
+def get_post_department(request):
+    # get all employees
+    if request.method == 'GET':
+        departments = Department.objects.all()
+        serializer = DepartmentSerializer(departments, many=True)
+        return Response(serializer.data)
+    # insert a new record for a employee
+    elif request.method == 'POST':
+        data = {
+            'name': request.data.get('name'),
+            'description': request.data.get('description')
+        }
+        serializer = DepartmentSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

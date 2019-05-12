@@ -12,5 +12,10 @@ urlpatterns = [
             r'^employee/$',
             views.get_post_employee,
             name='get_post_employee'
+        ),
+        url(
+            r'^department/$',
+            views.get_post_department,
+            name='get_post_department'
         )
     ]

@@ -1,12 +1,20 @@
 -- Log
 #'simple_log',
+INSTALLED_APPS
+-> error after post:
+sqlite3.InterfaceError: Error binding parameter 8 - probably unsupported type.
 
--- Validação email
+-- email validation
+test -> OK
+serializers not working
 
--- Criar estrutura de departamentos
+Access:
+http://127.0.0.1:8000/employee/
+http://127.0.0.1:8000/department/
 
-
-Comandos:
+Commands:
 python manage.py runserver
 python manage.py test
+python manage.py makemigrations
+python manage.py migrate
 

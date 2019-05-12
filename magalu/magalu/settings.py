@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'employee',
     #'simple_log',
+    'employee',
 ]
 
 REST_FRAMEWORK = {

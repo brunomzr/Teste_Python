@@ -1,12 +1,23 @@
 from rest_framework import serializers
 
-from .models import Employee
+from .validates import isValidEmail
+from .models import Employee, Department
 
+class DepartmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Department
+        fields = ('name','description')
 
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
-        fields = ('first_name', 'last_name', 'email', 'department')
+        fields = ('first_name', 'last_name', 'email', 'department','created_at','updated_at')
+
+        def validate_email(self,value):
+            print(value)
+            if not isValidEmail(value):
+                raise serializers.ValidationError('Invalid Email.')
+            return value
 
     # first_name = serializers.CharField()
     # last_name = serializers.CharField()
