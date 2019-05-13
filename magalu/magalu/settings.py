@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'request_vars.middleware.RequestVarsMiddleware',
+    #'request_vars.middleware.RequestVarsMiddleware',
     'easyaudit.middleware.easyaudit.EasyAuditMiddleware',
 ]
 
