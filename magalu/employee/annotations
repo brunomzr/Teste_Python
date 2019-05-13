@@ -1,16 +1,6 @@
--- Log
-#'simple_log',
-INSTALLED_APPS
--> error after post:
-sqlite3.InterfaceError: Error binding parameter 8 - probably unsupported type.
-
--- email validation
-test -> OK
-serializers not working
-
 Access:
-http://127.0.0.1:8000/employee/
 http://127.0.0.1:8000/department/
+http://127.0.0.1:8000/employee/
 
 Commands:
 python manage.py runserver

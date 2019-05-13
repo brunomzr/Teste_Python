@@ -6,18 +6,19 @@ from .models import Employee, Department
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
-        fields = ('name','description')
+        fields = ('id','name','description')
 
 class EmployeeSerializer(serializers.ModelSerializer):
+
+    def validate_email(self,value):
+        print(value)
+        if not isValidEmail(value):
+            raise serializers.ValidationError('Invalid Email.')
+        return value
+
     class Meta:
         model = Employee
-        fields = ('first_name', 'last_name', 'email', 'department','created_at','updated_at')
-
-        def validate_email(self,value):
-            print(value)
-            if not isValidEmail(value):
-                raise serializers.ValidationError('Invalid Email.')
-            return value
+        fields = ('id','first_name', 'last_name', 'email', 'department','created_at','updated_at')
 
     # first_name = serializers.CharField()
     # last_name = serializers.CharField()

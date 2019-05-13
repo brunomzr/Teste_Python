@@ -67,6 +67,7 @@ def get_post_department(request):
             'name': request.data.get('name'),
             'description': request.data.get('description')
         }
+
         serializer = DepartmentSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
